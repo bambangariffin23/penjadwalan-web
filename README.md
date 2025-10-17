@@ -18,11 +18,12 @@ Aplikasi web sederhana untuk **mengelola jadwal** dengan fitur autentikasi (logi
 
 ## 🎥 Demo Aplikasi
 
-### 🖥 Dashboard
-![Form Login](URL_GAMBAR_1)
+### 🖥 Form Login
+<img width="312" height="283" alt="Login" src="https://github.com/user-attachments/assets/2761908c-fa52-4317-9026-ba6859d577f1" />
+
 
 ### 📝 Form Tambah Jadwal
-![Form Register] <img width="363" height="362" alt="Regist" src="https://github.com/user-attachments/assets/0107a998-f003-4ba7-96af-91eb02bc0fd6" />
+<img width="363" height="362" alt="Regist" src="https://github.com/user-attachments/assets/0107a998-f003-4ba7-96af-91eb02bc0fd6" />
 
 
 
