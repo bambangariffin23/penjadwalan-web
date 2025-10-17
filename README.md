@@ -1,4 +1,4 @@
-# 🗓️ Penjadwalan — Laravel 12 App
+<img width="959" height="449" alt="editschedule" src="https://github.com/user-attachments/assets/c6ebd6ac-5bbb-4775-b6a6-38214796c412" /># 🗓️ Penjadwalan — Laravel 12 App
 
 Aplikasi web sederhana untuk **mengelola jadwal** dengan fitur autentikasi (login/register), **CRUD Jadwal**, **Kategori**, dan **Dashboard**. Dibangun dengan **Laravel 12 (PHP ≥ 8.2)** dan Vite.
 
@@ -19,11 +19,45 @@ Aplikasi web sederhana untuk **mengelola jadwal** dengan fitur autentikasi (logi
 ## 🎥 Demo Aplikasi
 
 ### 🖥 Form Login
-<img width="312" height="283" alt="Login" src="https://github.com/user-attachments/assets/2761908c-fa52-4317-9026-ba6859d577f1" />
+<img width="248" height="203" alt="login" src="https://github.com/user-attachments/assets/6bc57f4d-86ce-4541-bccb-b2595d267bbd" />
+
+
+### 📝 Form Register
+<img width="313" height="299" alt="register" src="https://github.com/user-attachments/assets/bca023f0-181b-4ddc-a21f-84c362a33701" />
+
+
+### 📝 Dashboard
+<img width="958" height="449" alt="dashboard" src="https://github.com/user-attachments/assets/88ab8be1-ded2-40b3-a344-8a80d33fe285" />
+
+
+### 📝 Form Jadwal
+<img width="959" height="449" alt="editschedule" src="https://github.com/user-attachments/assets/38ed1d61-be8f-4e76-a222-c40458c2300e" />
 
 
 ### 📝 Form Tambah Jadwal
-<img width="363" height="362" alt="Regist" src="https://github.com/user-attachments/assets/0107a998-f003-4ba7-96af-91eb02bc0fd6" />
+<img width="956" height="436" alt="tambahjadwal" src="https://github.com/user-attachments/assets/f853f494-f7d3-48d3-a3bc-0f9a9f577d73" />
+
+
+### 📝 Form Edit Jadwal
+<img width="959" height="449" alt="editschedule" src="https://github.com/user-attachments/assets/c4692405-e324-4e1e-adcc-9f14360f784c" />
+
+
+### 📝 Form Kategori
+<img width="955" height="449" alt="category" src="https://github.com/user-attachments/assets/6781d5aa-74ea-4fdd-94eb-ec90c48a80ae" />
+
+
+### 📝 Form Tambah Kategori
+<img width="953" height="449" alt="tambahkategori" src="https://github.com/user-attachments/assets/275637fa-094b-45bb-aaeb-6fe8162ea8b9" />
+
+
+### 📝 Form Edit Kategori
+<img width="958" height="452" alt="editkategori" src="https://github.com/user-attachments/assets/788be49c-b2a1-44f1-ab73-cac9dfe08013" />
+
+
+
+
+
+
 
 
 
