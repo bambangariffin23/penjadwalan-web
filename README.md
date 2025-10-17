@@ -1,61 +1,202 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🗓️ Penjadwalan — Laravel 12 App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web sederhana untuk **mengelola jadwal** dengan fitur autentikasi (login/register), **CRUD Jadwal**, **Kategori**, dan **Dashboard**. Dibangun dengan **Laravel 12 (PHP ≥ 8.2)** dan Vite.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Fitur Utama
+- 🔐 Autentikasi: Login, Register, Logout
+- 👤 Role dasar: admin (seed default)
+- 📅 CRUD **Jadwal** (`judul`, `tanggal`, `waktu`, `kategori`, `deskripsi`)
+- 🏷️ CRUD **Kategori** (`nama_kategori`)
+- 🧭 Dashboard & layout dengan Bootstrap (via CDN)
+- 🔗 Relasi: Jadwal ↔️ User, Jadwal ↔️ Category (opsional)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> Catatan: tampilan menggunakan Bootstrap CDN, sehingga **npm/vite opsional** kecuali kamu menambahkan asset tambahan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🧰 Teknologi
+- **Laravel**: 12.x
+- **PHP**: 8.2+
+- **Composer**
+- **Database**: MySQL/MariaDB (atau kompatibel)
+- **Vite** (opsional) untuk asset pipeline
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🗂️ Struktur Penting
+```
+Penjadwalan/
+├─ app/
+│  ├─ Http/Controllers/
+│  │  ├─ AuthController.php
+│  │  ├─ DashboardController.php
+│  │  ├─ ScheduleController.php
+│  │  └─ CategoryController.php
+│  └─ Models/
+│     ├─ Schedule.php
+│     ├─ Category.php
+│     └─ User.php
+├─ database/
+│  ├─ migrations/
+│  │  ├─ 2025_10_15_132705_create_categories_table.php
+│  │  └─ 2025_10_15_132719_create_schedules_table.php
+│  └─ seeders/
+│     ├─ AdminSeeder.php
+│     └─ DatabaseSeeder.php
+├─ resources/views/
+│  ├─ auth/{login.blade.php, register.blade.php}
+│  ├─ schedules/{index, create, edit}.blade.php
+│  ├─ categories/{index, create, edit}.blade.php
+│  └─ layouts/{app, admin, header, sidebar, footer}.blade.php
+├─ routes/web.php
+├─ composer.json
+├─ package.json
+└─ vite.config.js
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🚀 Persiapan & Instalasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1) Clone & masuk folder
+```bash
+git clone <URL_REPO_KAMU> penjadwalan
+cd penjadwalan/Penjadwalan
+```
 
-### Premium Partners
+### 2) Instal dependensi PHP
+```bash
+composer install
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 3) Konfigurasi environment
+Salin file contoh dan sesuaikan koneksi database:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+Edit `.env` pada bagian database:
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=penjadwalan
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Contributing
+> **Opsional (Session table):** Jika `SESSION_DRIVER=database`, jalankan:
+```bash
+php artisan session:table
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4) Migrasi & Seeder
+```bash
+php artisan migrate
+php artisan db:seed --class=AdminSeeder
+```
+Seeder akan membuat akun admin default:
+- Email: **admin@example.com**
+- Password: **admin123**
 
-## Code of Conduct
+*(Kamu bisa mengubahnya setelah login.)*
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5) Jalankan server lokal
+```bash
+php artisan serve
+```
+Buka: `http://127.0.0.1:8000`
 
-## Security Vulnerabilities
+> Halaman utama mengarah ke **form login** (`/login`).  
+> Setelah login, akses **/dashboard** untuk melihat menu.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🔧 Menjalankan Vite (opsional)
+Karena tampilan memakai Bootstrap CDN, langkah ini hanya perlu jika kamu menambah asset custom.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+# Instal dependency front-end
+npm install
+
+# Mode pengembangan
+npm run dev
+
+# Build produksi
+npm run build
+```
+
+---
+
+## 📘 Rute Penting
+```php
+// routes/web.php (ringkasan)
+GET  /               -> AuthController@loginForm (alias: login)
+GET  /login          -> AuthController@loginForm
+POST /login          -> AuthController@login
+GET  /register       -> AuthController@registerForm
+POST /register       -> AuthController@register
+POST /logout         -> AuthController@logout
+
+// Dilindungi middleware auth
+GET  /dashboard      -> DashboardController@index
+RES  /schedules      -> ScheduleController (index, create, store, edit, update, destroy)
+RES  /categories     -> CategoryController (index, create, store, edit, update, destroy)
+```
+
+---
+
+## 🗄️ Skema Tabel
+
+**categories**
+- `id` (PK)
+- `nama_kategori` (index, nullable)
+- `timestamps`
+
+**schedules**
+- `id` (PK)
+- `judul` (string, required)
+- `tanggal` (date)
+- `waktu` (time)
+- `kategori` (string, nullable) _*catatan: ada juga relasi ke Category via `category_id` di model — pastikan field ini tersedia jika ingin pakai relasi tersebut*_
+- `deskripsi` (text, nullable)
+- `timestamps`
+
+> **Relasi di Model**
+> - `Schedule::user()` → `belongsTo(User::class)`  
+> - `Schedule::category()` → `belongsTo(Category::class, 'category_id')`  
+>   Jika ingin memanfaatkan relasi ini penuh, tambahkan kolom `category_id` pada tabel `schedules` atau sesuaikan field yang dipakai.
+
+---
+
+## ✅ Checklist Produksi (opsional)
+- [ ] Buat user admin baru, nonaktifkan akun default
+- [ ] Set `APP_ENV=production` dan `APP_DEBUG=false`
+- [ ] Konfigurasi cache & queue (`php artisan optimize`)
+- [ ] Atur `SESSION_DRIVER=redis/database` sesuai kebutuhan
+- [ ] Setup backup database & log rotation
+- [ ] Konfigurasi web server (Nginx/Apache) & SSL
+
+---
+
+## 🧪 Pengujian
+```bash
+php artisan test
+```
+Tambahkan test kamu di folder `tests/`.
+
+---
+
+## 🤝 Kontribusi
+1. Fork repo
+2. Buat branch fitur: `git checkout -b feat/nama-fitur`
+3. Commit: `feat(schedule): tambah filter tanggal`
+4. PR ke main
+
+Ikuti gaya commit **Conventional Commits**.
+
+---
+
+
