@@ -1,4 +1,4 @@
-<img width="959" height="449" alt="editschedule" src="https://github.com/user-attachments/assets/c6ebd6ac-5bbb-4775-b6a6-38214796c412" /># 🗓️ Penjadwalan — Laravel 12 App
+# 🗓️ Penjadwalan — Laravel 12 App
 
 Aplikasi web sederhana untuk **mengelola jadwal** dengan fitur autentikasi (login/register), **CRUD Jadwal**, **Kategori**, dan **Dashboard**. Dibangun dengan **Laravel 12 (PHP ≥ 8.2)** dan Vite.
 
