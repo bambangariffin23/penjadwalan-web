@@ -16,11 +16,21 @@ Aplikasi web sederhana untuk **mengelola jadwal** dengan fitur autentikasi (logi
 
 ---
 
+## 🎥 Demo Aplikasi
+
+### 🖥 Dashboard
+![Form Login](URL_GAMBAR_1)
+
+### 📝 Form Tambah Jadwal
+![Form Register](<img width="363" height="362" alt="Regist" src="https://github.com/user-attachments/assets/0107a998-f003-4ba7-96af-91eb02bc0fd6" />)
+
+
+
 ## 🧰 Teknologi
 - **Laravel**: 12.x
 - **PHP**: 8.2+
 - **Composer**
-- **Database**: MySQL/MariaDB (atau kompatibel)
+- **Database**: MySQL
 - **Vite** (opsional) untuk asset pipeline
 
 ---
@@ -171,16 +181,6 @@ RES  /categories     -> CategoryController (index, create, store, edit, update, 
 
 ---
 
-## ✅ Checklist Produksi (opsional)
-- [ ] Buat user admin baru, nonaktifkan akun default
-- [ ] Set `APP_ENV=production` dan `APP_DEBUG=false`
-- [ ] Konfigurasi cache & queue (`php artisan optimize`)
-- [ ] Atur `SESSION_DRIVER=redis/database` sesuai kebutuhan
-- [ ] Setup backup database & log rotation
-- [ ] Konfigurasi web server (Nginx/Apache) & SSL
-
----
-
 ## 🧪 Pengujian
 ```bash
 php artisan test
@@ -189,14 +189,7 @@ Tambahkan test kamu di folder `tests/`.
 
 ---
 
-## 🤝 Kontribusi
-1. Fork repo
-2. Buat branch fitur: `git checkout -b feat/nama-fitur`
-3. Commit: `feat(schedule): tambah filter tanggal`
-4. PR ke main
 
-Ikuti gaya commit **Conventional Commits**.
 
----
 
 
